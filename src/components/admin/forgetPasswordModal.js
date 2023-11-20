@@ -5,6 +5,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 import { forgetPasswordActin } from "../../redux/action/adminAction";
+import SpinnerLoading from "../../utilits/spinnerLoading";
 
 const ForgetPasswordModal = ({
   forgetPassModal,
@@ -64,7 +65,10 @@ const ForgetPasswordModal = ({
         <div className="d-flex flex-column">
           <div className="d-flex justify-content-between align-items-center">
             <span className="black_color fs_26 fw_500">Password Reset</span>
-            <i className="ri-close-circle-fill fs_22 cursor_pointer" onClick={()=> handleForgetPassmodalClose()}/>
+            <i
+              className="ri-close-circle-fill fs_22 cursor_pointer"
+              onClick={() => handleForgetPassmodalClose()}
+            />
           </div>
 
           {message ? (
@@ -108,8 +112,9 @@ const ForgetPasswordModal = ({
                 <button
                   type="submit"
                   className="fs_18 fw_500 border_radius_10 border_none width_fit px-4 mx-auto blue_bg shadow mb-3"
+                  disabled={Loading}
                 >
-                  Send
+                  {Loading ? <SpinnerLoading /> : "Send"}
                 </button>
               </form>
             </>
