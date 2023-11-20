@@ -11,6 +11,9 @@
   min-width: 400px;
   min-height: 300px;
 }
+.forget_modal_container {
+  max-width: 30rem !important;
+}
 
 @media only screen and (max-width: 576px) {
   .login_container {

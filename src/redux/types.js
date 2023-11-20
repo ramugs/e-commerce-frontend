@@ -4,6 +4,7 @@ export const FINDALL_ADMIN = "FINDALL_ADMIN";
 
 
 export const RESET_PASSWORD = "RESET_PASSWORD"
+export const FORGET_PASSWORD = "FORGET_PASSWORD"
 
 // reducer type
 export const ADMIN_DETAILS_LOADING = "ADMIN_DETAILS_LOADING"
