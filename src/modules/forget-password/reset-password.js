@@ -13,6 +13,8 @@ const ResetPassword = () => {
   const navigate = useNavigate();
   const params = useParams();
   const [Loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [message, setMessage] = useState("");
 
   const formik = useFormik({
     enableReinitialize: true,
@@ -46,11 +48,13 @@ const ResetPassword = () => {
 
   const onSuccess = (data) => {
     setLoading(false);
+    setMessage(data.data);
     // navigate("/");
-    console.log(data);
   };
   const onError = (data) => {
     setLoading(false);
+    setError(data.error);
+    console.log(data);
   };
 
   return (
@@ -70,69 +74,84 @@ const ResetPassword = () => {
           <div className="fs_26 fs_sm_20 fw_500 text-center">
             <span>Reset Password</span>
           </div>
-          <div
-            className={`mt-5 border_radius_20 ${
-              formik.errors.newPassword && formik.touched.newPassword
-                ? "login_error_input"
-                : "login_input"
-            } `}
-          >
-            <input
-              className="border_none background_none outline_none p-1 ps-3 "
-              placeholder="New Password"
-              name="newPassword"
-              id="newPassword"
-              value={formik.values.newPassword}
-              onChange={(e) => {
-                formik.handleChange(e);
-              }}
-              onBlur={formik.handleBlur}
-            />
-          </div>
-          <div className="" style={{ height: "2rem" }}>
-            {formik.errors.newPassword && formik.touched.newPassword && (
-              <span className="red_color ps-2 fs_14">
-                {formik.errors.newPassword}
-              </span>
-            )}
-          </div>
+          {message ? (
+             <div className="d-felx text-center my-4">
+             <span className="fs_18 fw_500 green_color">{message}</span>
+           </div>
+          ) : (
+            <>
+              <div
+                className={`mt-5 border_radius_20 ${
+                  formik.errors.newPassword && formik.touched.newPassword
+                    ? "login_error_input"
+                    : "login_input"
+                } `}
+              >
+                <input
+                  className="border_none background_none outline_none p-1 ps-3 "
+                  placeholder="New Password"
+                  name="newPassword"
+                  id="newPassword"
+                  value={formik.values.newPassword}
+                  onChange={(e) => {
+                    formik.handleChange(e);
+                  }}
+                  onBlur={formik.handleBlur}
+                />
+              </div>
+              <div className="" style={{ height: "2rem" }}>
+                {formik.errors.newPassword && formik.touched.newPassword && (
+                  <span className="red_color ps-2 fs_14">
+                    {formik.errors.newPassword}
+                  </span>
+                )}
+              </div>
 
-          <div
-            className={` border_radius_20 ${
-              formik.errors.confirmPassword && formik.touched.confirmPassword
-                ? "login_error_input"
-                : "login_input"
-            } `}
-          >
-            <input
-              className="border_none background_none outline_none p-1 ps-3"
-              placeholder="Confirm Password"
-              name="confirmPassword"
-              id="confirmPassword"
-              value={formik.values.confirmPassword}
-              onChange={(e) => {
-                formik.handleChange(e);
-              }}
-              onBlur={formik.handleBlur}
-            />
-          </div>
-          <div className="" style={{ height: "2rem" }}>
-            {formik.errors.confirmPassword &&
-              formik.touched.confirmPassword && (
-                <span className="red_color ps-2 fs_14">
-                  {formik.errors.confirmPassword}
-                </span>
+              <div
+                className={` border_radius_20 ${
+                  formik.errors.confirmPassword &&
+                  formik.touched.confirmPassword
+                    ? "login_error_input"
+                    : "login_input"
+                } `}
+              >
+                <input
+                  className="border_none background_none outline_none p-1 ps-3"
+                  placeholder="Confirm Password"
+                  name="confirmPassword"
+                  id="confirmPassword"
+                  value={formik.values.confirmPassword}
+                  onChange={(e) => {
+                    formik.handleChange(e);
+                  }}
+                  onBlur={formik.handleBlur}
+                />
+              </div>
+              <div className="" style={{ height: "2rem" }}>
+                {formik.errors.confirmPassword &&
+                  formik.touched.confirmPassword && (
+                    <span className="red_color ps-2 fs_14">
+                      {formik.errors.confirmPassword}
+                    </span>
+                  )}
+              </div>
+
+              {error && (
+                <div className="d-felx text-center">
+                  <span className="red_color">{error}</span>
+                </div>
               )}
-          </div>
 
-          <div className="mt-3 ">
-            <button
-              className="border_none w-100 p-2 blue_bg border_radius_20"
-              type="submit"
-            >
-              {Loading ? <SpinnerLoading /> : "Login"}
-            </button>
-          </div>
+              <div className="mt-3 ">
+                <button
+                  className="border_none w-100 p-2 blue_bg border_radius_20"
+                  type="submit"
+                >
+                  {Loading ? <SpinnerLoading /> : "Confirm"}
+                </button>
+              </div>
+            </>
+          )}
         </form>
       </div>
     </div>

@@ -19,7 +19,6 @@ export const forgetPasswordActin = (data, onSuccess, onError) => {
 };
 
 export const resetPasswordActin = (data, token, onSuccess, onError) => {
-  console.log(token);
   return {
     type: RESET_PASSWORD,
     data,

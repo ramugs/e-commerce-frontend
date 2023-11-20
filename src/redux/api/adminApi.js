@@ -9,6 +9,5 @@ export const forgetPasswordApi = (params) => {
 };
 
 export const resetPasswordApi = (params, token) => {
-  console.log(token, params);
   return api.patch(`/ecommerce/admin/reset-password/${token}`, JSON.stringify(params));
 };
