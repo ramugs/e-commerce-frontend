@@ -20,7 +20,7 @@ const Index = () => {
             <Route path="/create-products" element={<CreateProducts />} />
           </Route>
           <Route
-            path="/reset-password/:resetToken"
+            path="/ecommerce/admin/reset-password/:resetToken"
             element={<ResetPassword />}
           />
         </Routes>

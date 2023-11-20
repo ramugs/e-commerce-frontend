@@ -1,4 +1,4 @@
-import { LOGIN_ADMIN } from "../types";
+import { LOGIN_ADMIN, RESET_PASSWORD } from "../types";
 
 export const loginActin = (data, onSuccess, onError) => {
   return {
@@ -9,3 +9,13 @@ export const loginActin = (data, onSuccess, onError) => {
   };
 };
 
+export const resetPasswordActin = (data, token, onSuccess, onError) => {
+  console.log(token);
+  return {
+    type: RESET_PASSWORD,
+    data,
+    token,
+    onSuccess,
+    onError,
+  };
+};

@@ -2,6 +2,9 @@ export const CREATE_ADMIN = "CREATE_ADMIN";
 export const LOGIN_ADMIN = "LOGIN_ADMIN";
 export const FINDALL_ADMIN = "FINDALL_ADMIN";
 
+
+export const RESET_PASSWORD = "RESET_PASSWORD"
+
 // reducer type
 export const ADMIN_DETAILS_LOADING = "ADMIN_DETAILS_LOADING"
 export const ADMIN_DETAILS_LOADED = "ADMIN_DETAILS_LOADED";
