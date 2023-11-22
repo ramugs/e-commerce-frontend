@@ -60,7 +60,7 @@ const DynamicTable = ({
               >
                 {search && item.value !== "view" && item.value !== "edit" && (
                   <i
-                    className="ri-search-2-line px-1 cursor_pointer"
+                    className={`ri-search-2-line px-1 cursor_pointer ${item?.search ? "primary_color":"white_color"}`}
                     onClick={() => toggleFn(index)}
                   />
                 )}
@@ -70,16 +70,16 @@ const DynamicTable = ({
                     <i
                       className={`ri-arrow-up-s-fill position-absolute top-0   cursor_pointer ${
                         sortName === item.value
-                          ? "white_color"
-                          : "disabled_color"
+                          ? "primary_color"
+                          : "white_color"
                       }`}
                       onClick={() => setSortName(item.value)}
                     />
                     <i
                       className={`ri-arrow-down-s-fill position-absolute bottom-0 cursor_pointer ${
                         sortName === `-${item.value}`
-                          ? "white_color"
-                          : "disabled_color"
+                          ? "primary_color"
+                          : "white_color"
                       }`}
                       onClick={() => setSortName(`-${item.value}`)}
                     />
