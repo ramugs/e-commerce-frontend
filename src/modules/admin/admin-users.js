@@ -51,21 +51,7 @@ const AdminUsers = () => {
       type: "date",
       search: "",
     },
-    {
-      label: "Job Title",
-      value: "jobTitle",
-      search: "",
-    },
-    {
-      label: "Office Location",
-      value: "officeLocation",
-      search: "",
-    },
-    {
-      label: "Created At",
-      value: "createdAt",
-      search: "",
-    },
+
     {
       label: "View",
       value: "view",
