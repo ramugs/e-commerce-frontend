@@ -7,25 +7,23 @@ export const api = axios.create({
   headers: { "Content-Type": "application/json" },
 });
 
-
-function excludeAccessToken (config) {
-  return (
-    config.url.includes("/login")
-  )
+function excludeAccessToken(config) {
+  return config.url.includes("/login");
 }
 
 api.interceptors.request.use(
   async (config) => {
     if (localStorage.getItem("accessToken")) {
       if (!excludeAccessToken(config)) {
-        config.headers["x-access-token"] = localStorage.getItem("accessToken");
+        config.headers["Authorization"] = `Bearer ${localStorage.getItem(
+          "accessToken"
+        )}`;
       }
     }
     return config;
   },
   async (error) => {}
 );
-
 
 api.interceptors.response.use(
   async (config) => {

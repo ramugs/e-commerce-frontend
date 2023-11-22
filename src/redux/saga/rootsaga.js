@@ -1,6 +1,7 @@
 import { all } from "redux-saga/effects";
 import {
   watcherAdminLogin,
+  watcherFindAllAdmin,
   watcherForgetPassword,
   watcherResetPassword,
 } from "./adminSaga";
@@ -10,5 +11,6 @@ export default function* rootSaga() {
     watcherAdminLogin(),
     watcherForgetPassword(),
     watcherResetPassword(),
+    watcherFindAllAdmin(),
   ]);
 }

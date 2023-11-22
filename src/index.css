@@ -69,6 +69,9 @@ code {
 .fs_26 {
   font-size: 26px;
 }
+.fs_28 {
+  font-size: 28px;
+}
 
 .fs_30 {
   font-size: 30px;
@@ -119,13 +122,15 @@ code {
 /* color  */
 
 .primary_color {
-  color: #31b641;
+  color: #0f203c;
 }
 
 .secondary_color {
   color: #45818e;
 }
-
+.disabled_color {
+  color: #BDBDBD;
+}
 .black_color {
   color: black;
 }
@@ -146,7 +151,7 @@ code {
   color: green;
 }
 .darkBlue_color {
-  color: #1E88E5;
+  color: #1e88e5;
 }
 .blue_bg {
   background-color: #81d4fa;
@@ -165,6 +170,9 @@ code {
 }
 .vh_100 {
   height: 100vh;
+}
+.vh_85 {
+  height: 85vh;
 }
 .w_60 {
   width: 60%;

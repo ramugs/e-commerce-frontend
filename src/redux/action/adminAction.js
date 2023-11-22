@@ -1,4 +1,9 @@
-import { FORGET_PASSWORD, LOGIN_ADMIN, RESET_PASSWORD } from "../types";
+import {
+  FIND_ALL_ADMIN,
+  FORGET_PASSWORD,
+  LOGIN_ADMIN,
+  RESET_PASSWORD,
+} from "../types";
 
 export const loginActin = (data, onSuccess, onError) => {
   return {
@@ -23,6 +28,23 @@ export const resetPasswordActin = (data, token, onSuccess, onError) => {
     type: RESET_PASSWORD,
     data,
     token,
+    onSuccess,
+    onError,
+  };
+};
+
+export const findAllAdminActin = (
+  search,
+  page_no,
+  sortName,
+  onSuccess,
+  onError
+) => {
+  return {
+    type: FIND_ALL_ADMIN,
+    search,
+    page_no,
+    sortName,
     onSuccess,
     onError,
   };

@@ -6,6 +6,9 @@ import CreateProducts from "../modules/createProducts/createProducts";
 import ProtectedRoute from "./protectedRoute";
 import PrivateRoute from "./privateRoute";
 import ResetPassword from "../modules/forget-password/reset-password";
+import AdminUsers from "../modules/admin/admin-users";
+import BlockedAdmins from "../modules/admin/blocked-admins";
+import DeletedAdmins from "../modules/admin/deleted-admins";
 
 const Index = () => {
   return (
@@ -17,6 +20,9 @@ const Index = () => {
           </Route>
           <Route element={<PrivateRoute />}>
             <Route path="/" element={<DashBoard />} />
+            <Route path="/admin-users" element={<AdminUsers />} />
+            <Route path="/blocked-admins" element={<BlockedAdmins />} />
+            <Route path="/deleted-admins" element={<DeletedAdmins />} />
             <Route path="/create-products" element={<CreateProducts />} />
           </Route>
           <Route
